@@ -1,0 +1,20 @@
+/* Style reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Roboto, Arial, sans-serif;
+  overflow-y: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}

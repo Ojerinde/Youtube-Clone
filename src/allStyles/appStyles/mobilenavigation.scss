@@ -1,0 +1,120 @@
+.mobile {
+  background-color: #fff;
+  width: 100%;
+  padding: 1.7rem 0;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &--icon {
+      padding: 1rem 1.1rem;
+      border-radius: 50%;
+      margin-right: 0.7rem;
+      transition: all 0.3s;
+      &:hover {
+        background-color: #ccc;
+      }
+      & svg {
+        height: 2.5rem;
+        width: 2.5rem;
+        color: #606060;
+        cursor: pointer;
+        @media screen and (max-width: 500px) {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+    }
+    @media screen and (max-width: 500px) {
+      padding: 0.6rem 0.8rem;
+      margin-right: 0.5rem;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__sidebar {
+    z-index: 1000;
+    width: 70%;
+  }
+  &__search {
+    flex-basis: 100%;
+    display: flex;
+
+    &--bar {
+      flex-basis: 100%;
+      display: flex;
+
+      & input {
+        flex-basis: 80%;
+        padding: 0.4rem 1.3rem;
+        border: 1px solid #ccc;
+        border-top-left-radius: 3rem;
+        border-bottom-left-radius: 3rem;
+        &::placeholder {
+          font-size: 1.6rem;
+          color: rgb(141, 135, 135);
+          font-weight: 400;
+          letter-spacing: 0.003rem;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &__icon {
+      flex-basis: 20%;
+      background: #f0f0f0;
+      text-align: center;
+      border-left: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      & svg {
+        color: rgb(114, 112, 112);
+        height: 2rem;
+        width: 2rem;
+      }
+
+      &:hover {
+        background: #d6d3d3;
+      }
+    }
+    &--box {
+      padding: 0.7rem 1rem;
+      border-radius: 50%;
+      margin-left: 0.7rem;
+      transition: all 0.3s;
+      &:hover {
+        background-color: #ccc;
+      }
+      & svg {
+        height: 2.5rem;
+        width: 2.5rem;
+        color: #606060;
+        cursor: pointer;
+        @media screen and (max-width: 500px) {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.img {
+  height: 3.5rem;
+  width: 3.5rem;
+  cursor: pointer;
+}

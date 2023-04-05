@@ -1,0 +1,82 @@
+.container {
+  width: 100%;
+  height: calc(100vh - 7rem);
+  padding: 1rem;
+  overflow-y: scroll;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+  }
+  &__list {
+    display: flex;
+    position: fixed;
+    margin-top: -2rem;
+    background-color: #fff;
+    padding: 1.8rem 2rem;
+    @media screen and (max-width: 768px) {
+      padding: 1.5rem 0;
+    }
+    &__active {
+      color: #fff !important;
+      background-color: #606060 !important;
+    }
+
+    & a {
+      font-size: 1.5rem;
+      color: #030303;
+      background: #0000000d;
+      padding: 0.7rem 1.2rem;
+      letter-spacing: 0.003rem;
+      border-radius: 1rem;
+      margin-right: 1rem;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  &__videos {
+    margin-top: 8rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    justify-content: space-between;
+
+    &--item {
+      margin-top: 2rem;
+    }
+    &--box {
+      height: 40dvh;
+      width: 100%;
+    }
+    &--img {
+    }
+
+    &--details {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      & figure {
+        flex-basis: 5rem;
+        margin-right: 1rem;
+        & img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+    &--detailsbox {
+      flex-basis: 100%;
+      & h2 {
+        color: #0f0f0f;
+        font-size: 1.8rem;
+      }
+      & p {
+        margin: 0.3rem 0;
+        font-size: 1.5rem;
+        color: #606060;
+      }
+    }
+  }
+}

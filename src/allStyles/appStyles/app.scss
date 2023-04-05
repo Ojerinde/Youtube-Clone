@@ -1,0 +1,13 @@
+.main {
+  padding: 0 1rem;
+  height: 100vh;
+  &__box {
+    display: flex;
+  }
+  &__sidebar {
+    flex-basis: 40%;
+  }
+  &__container {
+    flex-basis: 60%;
+  }
+}
