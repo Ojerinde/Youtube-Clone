@@ -10,12 +10,15 @@ import MobileSideBar from "./MobileSideBar";
 import { useDispatch } from "react-redux";
 import { videosActions, VideoState } from "../../redux/videos/videosSlice";
 import axios from "axios";
-import { API_KEY, BASE_URL, formatVideoList } from "../../utlis/Formatter";
+import { formatVideoList } from "../../utlis/Formatter";
 
 interface GetUsersResponse {
   nextPageToken: string;
   items: any[];
 }
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

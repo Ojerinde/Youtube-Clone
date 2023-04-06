@@ -7,12 +7,7 @@ import {
   videosSelector,
   VideoState,
 } from "../../redux/videos/videosSlice";
-import {
-  API_KEY,
-  BASE_URL,
-  formatVideoList,
-  RecommendationsArr,
-} from "../../utlis/Formatter";
+import { formatVideoList, RecommendationsArr } from "../../utlis/Formatter";
 import { useSelector } from "react-redux";
 import VideoItem from "../home/homecontainer/videoItem";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
@@ -25,6 +20,8 @@ interface GetUsersResponse {
   items: any[];
   nextPageToken: string;
 }
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const Trending: React.FC = () => {
   const dispatch = useDispatch();

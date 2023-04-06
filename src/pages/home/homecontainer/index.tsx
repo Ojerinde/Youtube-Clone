@@ -9,18 +9,18 @@ import {
   VideoState,
 } from "../../..//redux/videos/videosSlice";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
-import {
-  API_KEY,
-  BASE_URL,
-  formatVideoList,
-  RecommendationsArr,
-} from "../../../utlis/Formatter";
+import { formatVideoList, RecommendationsArr } from "../../../utlis/Formatter";
 import VideoItem from "./videoItem";
 
 interface GetUsersResponse {
   items: any[];
   nextPageToken: string;
 }
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+console.log(BASE_URL, API_KEY);
 
 const HomeContainer: React.FC = () => {
   const [tab, setTab] = useState<string>("all");

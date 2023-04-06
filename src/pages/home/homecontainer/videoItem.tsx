@@ -11,6 +11,8 @@ const VideoItem: React.FC<VideoState> = ({
   description,
   imgUrl,
 }) => {
+  // const navigate = useNavigate();
+  // const { pathname } = useLocation();
   return (
     <div className="container__videos--item">
       <div className="container__videos--box">

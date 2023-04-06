@@ -6,7 +6,7 @@ import { BiVideoPlus } from "react-icons/bi";
 import { MdKeyboardVoice } from "react-icons/md";
 import profileImg from "../../assets/test.png";
 import axios from "axios";
-import { API_KEY, BASE_URL, formatVideoList } from "../../utlis/Formatter";
+import { formatVideoList } from "../../utlis/Formatter";
 import { videosActions, VideoState } from "../../redux/videos/videosSlice";
 import { useDispatch } from "react-redux";
 
@@ -14,6 +14,8 @@ interface GetUsersResponse {
   nextPageToken: string;
   items: any[];
 }
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const DesktopNavigation: React.FC = () => {
   const dispatch = useDispatch();
