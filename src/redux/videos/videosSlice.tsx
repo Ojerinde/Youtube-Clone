@@ -12,6 +12,13 @@ export interface VideoState {
   description: string;
   imgUrl: string;
 }
+
+export interface StaState {
+  views: string;
+  comments: string;
+  videoId: string;
+}
+
 export interface AxiosError {
   hasError: boolean | null;
   message: unknown;
@@ -23,10 +30,14 @@ export interface VideosState {
   error: AxiosError;
   isLoading: boolean;
   overlay: boolean;
+  statistics: StaState[];
+  relatedVideos: VideoState[];
 }
 
 const initialState: VideosState = {
   videos: [],
+  relatedVideos: [],
+  statistics: [],
   nextPageToken: "",
   error: { hasError: null, message: "" },
   isLoading: false,
@@ -40,8 +51,17 @@ export const videosSlice = createSlice({
     addVideos(state, { payload }: PayloadAction<VideoState[]>) {
       state.videos = payload;
     },
+    addRelatedVideos(state, { payload }: PayloadAction<VideoState[]>) {
+      state.relatedVideos = payload;
+    },
+    addStatictics(state, { payload }: PayloadAction<StaState[]>) {
+      state.statistics = state.statistics.concat(payload);
+    },
     updateVideos(state, { payload }: PayloadAction<VideoState[]>) {
       state.videos = state.videos.concat(payload);
+    },
+    updateRelatedVideos(state, { payload }: PayloadAction<VideoState[]>) {
+      state.relatedVideos = state.relatedVideos.concat(payload);
     },
     updateNextPageToken(state, { payload }: PayloadAction<string>) {
       state.nextPageToken = payload;

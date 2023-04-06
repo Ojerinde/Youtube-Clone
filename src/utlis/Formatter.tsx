@@ -45,7 +45,7 @@ export const formatVideoList = (data: any[]) => {
       title: vid.snippet.title,
       channelTitle: vid.snippet.channelTitle,
       description: vid.snippet.description,
-      imgUrl: vid.snippet.thumbnails.default,
+      imgUrl: vid.snippet.thumbnails.default.url,
     };
   });
   return formattedVideoList;

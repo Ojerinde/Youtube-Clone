@@ -20,8 +20,6 @@ interface GetUsersResponse {
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-console.log(BASE_URL, API_KEY);
-
 const HomeContainer: React.FC = () => {
   const [tab, setTab] = useState<string>("all");
   const { videos, overlay, isLoading, nextPageToken } =

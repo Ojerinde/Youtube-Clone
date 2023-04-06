@@ -48,8 +48,13 @@
     &--box {
       height: 40dvh;
       width: 100%;
-    }
-    &--img {
+
+      & div {
+        background-color: transparent;
+        position: absolute;
+        z-index: 300;
+        cursor: pointer;
+      }
     }
 
     &--details {
@@ -58,12 +63,15 @@
       justify-content: space-between;
       align-items: flex-start;
       & figure {
-        flex-basis: 5rem;
+        flex-basis: 6rem;
+        height: 5.5rem;
         margin-right: 1rem;
+        border-radius: 50%;
+        overflow: hidden;
         & img {
           height: 100%;
           width: 100%;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
     }
@@ -89,5 +97,3 @@
     }
   }
 }
-
-
