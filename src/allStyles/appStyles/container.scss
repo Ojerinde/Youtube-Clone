@@ -7,6 +7,7 @@
     width: 100vw;
   }
   &__list {
+    width: 100%;
     display: flex;
     position: fixed;
     margin-top: -2rem;
@@ -20,7 +21,7 @@
       background-color: #606060 !important;
     }
 
-    & a {
+    & li {
       font-size: 1.5rem;
       color: #030303;
       background: #0000000d;
@@ -28,6 +29,7 @@
       letter-spacing: 0.003rem;
       border-radius: 1rem;
       margin-right: 1rem;
+      cursor: pointer;
 
       &:hover {
         background: rgba(0, 0, 0, 0.1);
@@ -70,7 +72,7 @@
       flex-basis: 100%;
       & h2 {
         color: #0f0f0f;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
       & p {
         margin: 0.3rem 0;

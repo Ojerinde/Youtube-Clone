@@ -1,0 +1,31 @@
+.button {
+  padding: 0.9rem 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 10rem;
+  color: #fff;
+  border: none;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.408);
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    rgba(rgb(54, 53, 53), 0.7),
+    rgba(rgb(31, 34, 31), 0.7)
+  );
+  transition: all 0.3s;
+
+  &:hover {
+    color: rgb(243, 239, 239);
+    background: linear-gradient(
+      to bottom,
+      rgba(rgb(31, 34, 31), 0.7),
+      rgba(rgb(54, 53, 53), 0.7)
+    );
+    transform: translateY(-0.3rem);
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

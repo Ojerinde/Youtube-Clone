@@ -1,13 +1,13 @@
 import React from "react";
-import testImg from "../../assets/test.png";
-import { VideosObj } from "./videosBanks";
-const VideoItem: React.FC<VideosObj> = ({
+import { VideoState } from "../../../redux/videos/videosSlice";
+const VideoItem: React.FC<VideoState> = ({
   title,
-  name,
-  liveUrl,
-  icon,
-  posted,
-  views,
+  publishedAt,
+  videoId,
+  channelId,
+  channelTitle,
+  description,
+  imgUrl,
 }) => {
   return (
     <div className="container__videos--item">
@@ -15,7 +15,7 @@ const VideoItem: React.FC<VideosObj> = ({
         <iframe
           width="100%"
           height="100%"
-          src="https://www.youtube.com/embed/PRsMrmzA8ng"
+          src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -23,16 +23,12 @@ const VideoItem: React.FC<VideosObj> = ({
       </div>
       <div className="container__videos--details">
         <figure>
-          <img src={testImg} alt="Joel" />
+          <img src={`${imgUrl}`} alt="Joel" />
         </figure>
         <div className="container__videos--detailsbox">
           <h2>{title}</h2>
-          <p>
-            {name} {icon}
-          </p>
-          <p>
-            {views} .{posted}
-          </p>
+          <p>{channelTitle}</p>
+          <p>12mil .{publishedAt}</p>
         </div>
       </div>
     </div>
