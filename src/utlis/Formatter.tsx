@@ -1,7 +1,8 @@
 import moment from "moment";
 
 export const BASE_URL = "https://www.googleapis.com/youtube/v3/";
-export const API_KEY = "AIzaSyD_pzN3QgGrmzrZMs5moyNs0xD-2J02kgI";
+// export const API_KEY = "AIzaSyD_pzN3QgGrmzrZMs5moyNs0xD-2J02kgI";
+export const API_KEY = "AIzaSyArS3d1eiY5CWTTCYYjLi15BxdPQbIHGPI";
 export const RecommendationsArr = [
   {
     to: "all",
