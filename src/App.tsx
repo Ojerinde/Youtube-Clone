@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 
 import Button from "./components/Button/Button";
@@ -6,6 +6,7 @@ import Layout from "./components/layouts/layout";
 import Home from "./pages/home";
 import NotFound from "./pages/notFound/notFound";
 import Trending from "./pages/trending";
+import VideoDetails from "./pages/video";
 
 // Error Boundary FallbackComponent: This is the function that will be called whenever the errorboundary component caught an error
 const ErrorFallback = (props: any) => {
@@ -30,9 +31,14 @@ const App = () => {
     >
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/trending" element={<Trending />} />
-          <Route path="/subscription" element={<Home />} />
+          <Route path="/" element={<Outlet />}>
+            <Route path="" element={<Home />} />
+            <Route path=":videoId" element={<VideoDetails />} />
+          </Route>
+          <Route path="/trending" element={<Outlet />}>
+            <Route path="" element={<Trending />} />
+            <Route path=":videoId" element={<VideoDetails />} />
+          </Route>
 
           {/* Routes that will be matched if none of tthe route(s) is matched */}
           <Route path="*" element={<NotFound />} />

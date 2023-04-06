@@ -14,8 +14,6 @@ interface GetUsersResponse {
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-console.log(BASE_URL, API_KEY);
-
 const Home: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,10 +26,8 @@ const Home: React.FC = () => {
         const { data } = await axios.get<GetUsersResponse>(
           `${BASE_URL}search?part=snippet&maxResults=12&q=&type=video&key=${API_KEY}`
         );
-
         // Storing the next page token to implement infinite scrolling
         dispatch(videosActions.updateNextPageToken(data.nextPageToken));
-
         // formatting the fetched resources
         const formattedVideos: VideoState[] = formatVideoList(data.items);
 

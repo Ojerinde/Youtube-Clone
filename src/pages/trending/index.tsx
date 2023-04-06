@@ -12,10 +12,6 @@ import { useSelector } from "react-redux";
 import VideoItem from "../home/homecontainer/videoItem";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
-// const { data } = await axios.get(
-//   `${BASE_URL}videos?part=statistics&id=${vid.id.videoId}&key=${API_KEY}`
-// // );
-
 interface GetUsersResponse {
   items: any[];
   nextPageToken: string;
