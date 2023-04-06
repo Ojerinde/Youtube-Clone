@@ -1,5 +1,7 @@
 import React from "react";
+import { BsDot } from "react-icons/bs";
 import { VideoState } from "../../../redux/videos/videosSlice";
+import testImg from "../../../assets/test.png";
 const VideoItem: React.FC<VideoState> = ({
   title,
   publishedAt,
@@ -23,12 +25,14 @@ const VideoItem: React.FC<VideoState> = ({
       </div>
       <div className="container__videos--details">
         <figure>
-          <img src={`${imgUrl}`} alt="Joel" />
+          <img src={testImg} alt="Joel" />
         </figure>
         <div className="container__videos--detailsbox">
           <h2>{title}</h2>
           <p>{channelTitle}</p>
-          <p>12mil .{publishedAt}</p>
+          <p>
+            10 million views <BsDot /> <span>{publishedAt}</span>
+          </p>
         </div>
       </div>
     </div>

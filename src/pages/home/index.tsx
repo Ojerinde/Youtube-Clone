@@ -14,16 +14,20 @@ const Home: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getAllVideos = async () => {
+      dispatch(videosActions.setIsLoading(true));
+      dispatch(
+        videosActions.triggerError({ message: "message", hasError: false })
+      );
       try {
         const { data } = await axios.get<GetUsersResponse>(
-          `${BASE_URL}/part=snippet&maxResults=12&q=&type=video&key=${API_KEY}`
+          `${BASE_URL}search?part=snippet&maxResults=12&q=&type=video&key=${API_KEY}`
         );
         console.log(data);
         // Storing the next page token to implement infinite scrolling
         dispatch(videosActions.updateNextPageToken(data.nextPageToken));
 
         // formatting the fetched resources
-        const formattedVideos: VideoState[] = formatVideoList(data.items);
+        const formattedVideos: VideoState[] = await formatVideoList(data.items);
 
         // Storing the already formatted fetched videos
         dispatch(videosActions.addVideos(formattedVideos));
@@ -31,10 +35,13 @@ const Home: React.FC = () => {
         dispatch(
           videosActions.triggerError({ message: message, hasError: true })
         );
+      } finally {
+        dispatch(videosActions.setIsLoading(false));
       }
     };
     getAllVideos();
   }, [dispatch]);
+
   return <HomeContainer />;
 };
 export default Home;

@@ -19,16 +19,18 @@ export interface AxiosError {
 
 export interface VideosState {
   videos: VideoState[];
-  searchedVideos: VideoState[];
   nextPageToken: string;
   error: AxiosError;
+  isLoading: boolean;
+  overlay: boolean;
 }
 
 const initialState: VideosState = {
   videos: [],
-  searchedVideos: [],
   nextPageToken: "",
   error: { hasError: null, message: "" },
+  isLoading: false,
+  overlay: false,
 };
 
 export const videosSlice = createSlice({
@@ -36,16 +38,22 @@ export const videosSlice = createSlice({
   initialState,
   reducers: {
     addVideos(state, { payload }: PayloadAction<VideoState[]>) {
-      state.videos = state.videos.concat(payload);
+      state.videos = payload;
     },
-    searchedVideos(state, { payload }: PayloadAction<VideoState[]>) {
-      state.searchedVideos = payload;
+    updateVideos(state, { payload }: PayloadAction<VideoState[]>) {
+      state.videos = state.videos.concat(payload);
     },
     updateNextPageToken(state, { payload }: PayloadAction<string>) {
       state.nextPageToken = payload;
     },
     triggerError(state, { payload }: PayloadAction<AxiosError>) {
       state.error = payload;
+    },
+    setIsLoading(state, { payload }: PayloadAction<boolean>) {
+      state.isLoading = payload;
+    },
+    setOverlay(state, { payload }: PayloadAction<boolean>) {
+      state.overlay = payload;
     },
   },
 });

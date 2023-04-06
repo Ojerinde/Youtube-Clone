@@ -13,25 +13,32 @@ import {
   SubscriptionsData,
 } from "../sidebar/sidebarBanks";
 import SideBarItem from "../sidebar/sideBarItem";
-const MobileSideBar: React.FC = () => {
+
+interface Props {
+  onSelect: () => void;
+}
+const MobileSideBar: React.FC<Props> = ({ onSelect }) => {
   return (
     <div className="mobile__sidebar">
       <div className="sidebar__list">
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "sidebar__active" : "")}
+          onClick={onSelect}
         >
           <MdHomeFilled /> Home
         </NavLink>
         <NavLink
           to="/trending"
           className={({ isActive }) => (isActive ? "sidebar__active" : "")}
+          onClick={onSelect}
         >
           <MdOutlinePlayArrow /> Trending
         </NavLink>
         <NavLink
-          to="/subsription"
+          to="/subscription"
           className={({ isActive }) => (isActive ? "sidebar__active" : "")}
+          onClick={onSelect}
         >
           <MdOutlineSubscriptions />
           Subscriptions
@@ -39,7 +46,7 @@ const MobileSideBar: React.FC = () => {
       </div>
       <div className="sidebar__list">
         {Library.map((more, index) => (
-          <NavLink to={more.link} key={index}>
+          <NavLink to={more.link} key={index} onClick={onSelect}>
             {more.icon}
             {more.title}
           </NavLink>
